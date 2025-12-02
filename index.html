@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atstats - ATProto Lexicon Usage</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+        h1 { color: #58a6ff; margin-bottom: 5px; }
+        h2 { color: #c9d1d9; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .subtitle { color: #8b949e; margin-bottom: 30px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .stat-value { font-size: 2em; font-weight: bold; color: #58a6ff; }
+        .stat-label { color: #8b949e; font-size: 0.9em; }
+        .chart-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .authority-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .authority-header {
+            background: #21262d;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .authority-header:hover { background: #30363d; }
+        .authority-name {
+            font-family: monospace;
+            font-size: 1.1em;
+            color: #58a6ff;
+        }
+        .authority-stats {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+        .authority-domain {
+            color: #8b949e;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+        .authority-domain a { color: #8b949e; }
+        .authority-domain a:hover { color: #58a6ff; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px 16px;
+            text-align: left;
+            border-bottom: 1px solid #30363d;
+        }
+        th { color: #8b949e; font-weight: 500; background: #161b22; }
+        .collection-name { font-family: monospace; }
+        .collection-name a { color: #79c0ff; text-decoration: none; }
+        .collection-name a:hover { text-decoration: underline; }
+        .collection-name .no-link { color: #8b949e; }
+        .pct-bar {
+            background: #21262d;
+            border-radius: 3px;
+            height: 8px;
+            width: 80px;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .pct-bar-fill { background: #238636; height: 100%; border-radius: 3px; }
+        .official-badge {
+            background: #238636;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+        .third-party-badge {
+            background: #6e40c9;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+        .loading { text-align: center; padding: 50px; color: #8b949e; }
+        a { color: #58a6ff; }
+        footer { margin-top: 40px; text-align: center; color: #8b949e; font-size: 0.9em; }
+        .expand-icon { color: #8b949e; transition: transform 0.2s; }
+        .expanded .expand-icon { transform: rotate(90deg); }
+    </style>
+</head>
+<body>
+    <h1>atstats</h1>
+    <p class="subtitle">Live ATProto Lexicon Usage Statistics from Bluesky Jetstream</p>
+
+    <div id="content" class="loading">Loading stats...</div>
+
+    <footer>
+        Data sampled every 6 hours from <a href="https://github.com/bluesky-social/jetstream">Jetstream</a>.
+        <a href="https://github.com/golda/atstats">Source on GitHub</a>
+    </footer>
+
+    <script>
+        // Known official authorities that have GitHub lexicons
+        const OFFICIAL_AUTHORITIES = ['app.bsky', 'chat.bsky', 'com.atproto', 'tools.ozone'];
+
+        // Lexidex-indexed domains (from their known list)
+        const LEXIDEX_DOMAINS = [
+            'bsky.app', 'bsky.chat', 'atproto.com', 'ozone.tools',
+            'statusphere.xyz', 'robocracy.org', 'atprofile.com',
+            'skyblur.uk', 'lexicon.community', 'blebbit.app', 'grain.social'
+        ];
+
+        function getAuthority(nsid) {
+            const parts = nsid.split('.');
+            return parts.length >= 2 ? parts.slice(0, 2).join('.') : nsid;
+        }
+
+        function authorityToDomain(authority) {
+            const parts = authority.split('.');
+            return parts.reverse().join('.');
+        }
+
+        function getLexiconUrl(nsid) {
+            const authority = getAuthority(nsid);
+
+            // Official Bluesky lexicons - link to GitHub
+            if (OFFICIAL_AUTHORITIES.includes(authority)) {
+                const path = nsid.replace(/\./g, '/');
+                return {
+                    url: `https://github.com/bluesky-social/atproto/blob/main/lexicons/${path}.json`,
+                    source: 'github'
+                };
+            }
+
+            // Check if domain is in lexidex
+            const domain = authorityToDomain(authority);
+            if (LEXIDEX_DOMAINS.includes(domain)) {
+                return {
+                    url: `https://lexidex.bsky.dev/lexicon/${nsid}`,
+                    source: 'lexidex'
+                };
+            }
+
+            // Unknown - try lexidex anyway, might work
+            return {
+                url: `https://lexidex.bsky.dev/lexicon/${nsid}`,
+                source: 'unknown'
+            };
+        }
+
+        function isOfficial(authority) {
+            return OFFICIAL_AUTHORITIES.includes(authority);
+        }
+
+        async function loadStats() {
+            try {
+                const res = await fetch('stats.json');
+                if (!res.ok) throw new Error('No data yet');
+                const stats = await res.json();
+                render(stats);
+            } catch (e) {
+                document.getElementById('content').innerHTML = `
+                    <p>No data available yet. Stats will appear after the first sample runs.</p>
+                `;
+            }
+        }
+
+        function render(stats) {
+            const collections = Object.entries(stats.collections);
+            const maxPct = collections.length > 0 ? collections[0][1].pct : 100;
+
+            // Group by authority
+            const byAuthority = {};
+            for (const [nsid, data] of collections) {
+                const auth = getAuthority(nsid);
+                if (!byAuthority[auth]) {
+                    byAuthority[auth] = { collections: [], totalCount: 0, totalPct: 0 };
+                }
+                byAuthority[auth].collections.push([nsid, data]);
+                byAuthority[auth].totalCount += data.count;
+                byAuthority[auth].totalPct += data.pct;
+            }
+
+            // Sort authorities by total count
+            const sortedAuthorities = Object.entries(byAuthority)
+                .sort((a, b) => b[1].totalCount - a[1].totalCount);
+
+            let html = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">${stats.total_events.toLocaleString()}</div>
+                        <div class="stat-label">Total Events</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${stats.total_samples}</div>
+                        <div class="stat-label">Samples Collected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${collections.length}</div>
+                        <div class="stat-label">Unique Lexicons</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${sortedAuthorities.length}</div>
+                        <div class="stat-label">Authorities</div>
+                    </div>
+                </div>
+            `;
+
+            if (stats.history && stats.history.length > 1) {
+                html += `
+                    <div class="chart-container">
+                        <h3>Events Over Time</h3>
+                        <canvas id="historyChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Top Lexicons Over Time</h3>
+                        <canvas id="collectionsChart"></canvas>
+                    </div>
+                `;
+            }
+
+            html += `<h2>Lexicons by Authority</h2>`;
+
+            for (const [authority, data] of sortedAuthorities) {
+                const domain = authorityToDomain(authority);
+                const official = isOfficial(authority);
+                const badge = official
+                    ? '<span class="official-badge">Official</span>'
+                    : '<span class="third-party-badge">Third Party</span>';
+
+                html += `
+                    <div class="authority-section" data-authority="${authority}">
+                        <div class="authority-header" onclick="toggleAuthority('${authority}')">
+                            <div>
+                                <span class="expand-icon">▶</span>
+                                <span class="authority-name">${authority}</span>
+                                ${badge}
+                                <span class="authority-domain">
+                                    (<a href="https://${domain}" target="_blank" rel="noopener">${domain}</a>)
+                                </span>
+                            </div>
+                            <div class="authority-stats">
+                                ${data.collections.length} lexicon${data.collections.length !== 1 ? 's' : ''} •
+                                ${data.totalCount.toLocaleString()} events •
+                                ${data.totalPct.toFixed(1)}%
+                            </div>
+                        </div>
+                        <div class="authority-content" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Lexicon</th>
+                                        <th>Count</th>
+                                        <th>Share</th>
+                                        <th>First Seen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.collections.map(([nsid, cdata]) => {
+                                        const lexUrl = getLexiconUrl(nsid);
+                                        const shortName = nsid.substring(authority.length + 1);
+                                        let nameHtml;
+                                        if (lexUrl.source === 'github') {
+                                            nameHtml = `<a href="${lexUrl.url}" target="_blank" rel="noopener" title="View on GitHub">${shortName}</a>`;
+                                        } else if (lexUrl.source === 'lexidex') {
+                                            nameHtml = `<a href="${lexUrl.url}" target="_blank" rel="noopener" title="View on Lexidex">${shortName}</a>`;
+                                        } else {
+                                            // Unknown - show name, link full NSID to lexidex search (might get indexed later)
+                                            nameHtml = `<span class="no-link" title="${nsid} - schema not yet indexed">${shortName}</span>`;
+                                        }
+                                        return `
+                                            <tr>
+                                                <td class="collection-name">${nameHtml}</td>
+                                                <td>${cdata.count.toLocaleString()}</td>
+                                                <td>
+                                                    <span class="pct-bar"><span class="pct-bar-fill" style="width: ${(cdata.pct / maxPct) * 100}%"></span></span>
+                                                    ${cdata.pct}%
+                                                </td>
+                                                <td>${new Date(cdata.first_seen).toLocaleDateString()}</td>
+                                            </tr>
+                                        `;
+                                    }).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('content').innerHTML = html;
+
+            // Auto-expand first authority
+            if (sortedAuthorities.length > 0) {
+                toggleAuthority(sortedAuthorities[0][0]);
+            }
+
+            if (stats.history && stats.history.length > 1) {
+                renderCharts(stats);
+            }
+        }
+
+        function toggleAuthority(authority) {
+            const section = document.querySelector(`[data-authority="${authority}"]`);
+            const content = section.querySelector('.authority-content');
+            const header = section.querySelector('.authority-header');
+
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                header.classList.add('expanded');
+            } else {
+                content.style.display = 'none';
+                header.classList.remove('expanded');
+            }
+        }
+
+        function renderCharts(stats) {
+            const chartColors = ['#58a6ff', '#238636', '#f0883e', '#a371f7', '#f85149', '#3fb950', '#79c0ff', '#d29922'];
+
+            // Events over time
+            new Chart(document.getElementById('historyChart'), {
+                type: 'line',
+                data: {
+                    labels: stats.history.map(h => new Date(h.ts).toLocaleDateString()),
+                    datasets: [{
+                        label: 'Events per sample',
+                        data: stats.history.map(h => h.total),
+                        borderColor: '#58a6ff',
+                        backgroundColor: 'rgba(88, 166, 255, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                    }
+                }
+            });
+
+            // Top collections over time
+            const topNames = Object.keys(stats.collections).slice(0, 5);
+            new Chart(document.getElementById('collectionsChart'), {
+                type: 'line',
+                data: {
+                    labels: stats.history.map(h => new Date(h.ts).toLocaleDateString()),
+                    datasets: topNames.map((name, i) => ({
+                        label: name.split('.').slice(-2).join('.'),
+                        data: stats.history.map(h => h.counts[name] || 0),
+                        borderColor: chartColors[i % chartColors.length],
+                        tension: 0.3,
+                        fill: false
+                    }))
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: '#c9d1d9' } } },
+                    scales: {
+                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                    }
+                }
+            });
+        }
+
+        loadStats();
+    </script>
+</body>
+</html>
