@@ -236,17 +236,25 @@
                 </div>
             `;
 
-            if (stats.history && stats.history.length > 1) {
+            if (stats.history && stats.history.length >= 1) {
                 html += `
                     <div class="chart-container">
-                        <h3>Events Over Time</h3>
+                        <h3>Events Per Second Over Time</h3>
                         <canvas id="historyChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Top Lexicons Over Time</h3>
-                        <canvas id="collectionsChart"></canvas>
+                        <h3>Current Lexicon Distribution</h3>
+                        <canvas id="barChart"></canvas>
                     </div>
                 `;
+                if (stats.history.length > 1) {
+                    html += `
+                        <div class="chart-container">
+                            <h3>Top Lexicons Over Time (events/sec)</h3>
+                            <canvas id="collectionsChart"></canvas>
+                        </div>
+                    `;
+                }
             }
 
             html += `<h2>Lexicons by Authority</h2>`;
@@ -324,7 +332,7 @@
                 toggleAuthority(sortedAuthorities[0][0]);
             }
 
-            if (stats.history && stats.history.length > 1) {
+            if (stats.history && stats.history.length >= 1) {
                 renderCharts(stats);
             }
         }
@@ -346,14 +354,17 @@
         function renderCharts(stats) {
             const chartColors = ['#58a6ff', '#238636', '#f0883e', '#a371f7', '#f85149', '#3fb950', '#79c0ff', '#d29922'];
 
-            // Events over time
+            // Events per second over time (line chart)
             new Chart(document.getElementById('historyChart'), {
                 type: 'line',
                 data: {
-                    labels: stats.history.map(h => new Date(h.ts).toLocaleDateString()),
+                    labels: stats.history.map(h => {
+                        const d = new Date(h.ts);
+                        return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    }),
                     datasets: [{
-                        label: 'Events per sample',
-                        data: stats.history.map(h => h.total),
+                        label: 'Events/sec',
+                        data: stats.history.map(h => h.eps || h.total / (h.duration_sec || 60)),
                         borderColor: '#58a6ff',
                         backgroundColor: 'rgba(88, 166, 255, 0.1)',
                         fill: true,
@@ -365,34 +376,82 @@
                     plugins: { legend: { display: false } },
                     scales: {
                         x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
-                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                        y: {
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#8b949e' },
+                            title: { display: true, text: 'events/sec', color: '#8b949e' }
+                        }
                     }
                 }
             });
 
-            // Top collections over time
-            const topNames = Object.keys(stats.collections).slice(0, 5);
-            new Chart(document.getElementById('collectionsChart'), {
-                type: 'line',
+            // Bar chart - current lexicon distribution (top 10)
+            const topLexicons = Object.entries(stats.collections).slice(0, 10);
+            new Chart(document.getElementById('barChart'), {
+                type: 'bar',
                 data: {
-                    labels: stats.history.map(h => new Date(h.ts).toLocaleDateString()),
-                    datasets: topNames.map((name, i) => ({
-                        label: name.split('.').slice(-2).join('.'),
-                        data: stats.history.map(h => h.counts[name] || 0),
-                        borderColor: chartColors[i % chartColors.length],
-                        tension: 0.3,
-                        fill: false
-                    }))
+                    labels: topLexicons.map(([name]) => name.split('.').slice(-2).join('.')),
+                    datasets: [{
+                        label: 'Share %',
+                        data: topLexicons.map(([, data]) => data.pct),
+                        backgroundColor: chartColors.slice(0, 10),
+                        borderRadius: 4
+                    }]
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { labels: { color: '#c9d1d9' } } },
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
                     scales: {
-                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
-                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                        x: {
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#8b949e', callback: v => v + '%' }
+                        },
+                        y: { grid: { display: false }, ticks: { color: '#c9d1d9' } }
                     }
                 }
             });
+
+            // Top collections over time (only if multiple samples)
+            if (stats.history.length > 1) {
+                const topNames = Object.keys(stats.collections).slice(0, 5);
+                new Chart(document.getElementById('collectionsChart'), {
+                    type: 'line',
+                    data: {
+                        labels: stats.history.map(h => {
+                            const d = new Date(h.ts);
+                            return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                        }),
+                        datasets: topNames.map((name, i) => ({
+                            label: name.split('.').slice(-2).join('.'),
+                            data: stats.history.map(h => {
+                                // Use counts_per_sec if available, otherwise calculate
+                                if (h.counts_per_sec && h.counts_per_sec[name] !== undefined) {
+                                    return h.counts_per_sec[name];
+                                }
+                                const count = h.counts[name] || 0;
+                                const duration = h.duration_sec || 60;
+                                return Math.round(count / duration * 100) / 100;
+                            }),
+                            borderColor: chartColors[i % chartColors.length],
+                            tension: 0.3,
+                            fill: false
+                        }))
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { labels: { color: '#c9d1d9' } } },
+                        scales: {
+                            x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                            y: {
+                                grid: { color: '#30363d' },
+                                ticks: { color: '#8b949e' },
+                                title: { display: true, text: 'events/sec', color: '#8b949e' }
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         loadStats();

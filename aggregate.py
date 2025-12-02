@@ -27,13 +27,20 @@ def aggregate_samples():
             sample = json.load(f)
 
         ts = sample["ts"]
+        duration = sample.get("duration_sec", 60)
         total_events += sample["total"]
 
-        # Build history entry
+        # Build history entry with events per second for comparability
+        eps = sample["total"] / duration if duration > 0 else 0
+        counts_per_sec = {k: v / duration for k, v in sample["counts"].items()} if duration > 0 else {}
+
         history.append({
             "ts": ts,
+            "duration_sec": duration,
             "total": sample["total"],
+            "eps": round(eps, 1),  # events per second
             "counts": sample["counts"],
+            "counts_per_sec": {k: round(v, 2) for k, v in counts_per_sec.items()},
         })
 
         for collection, count in sample["counts"].items():

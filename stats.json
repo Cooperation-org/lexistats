@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-03T01:54:59.631646+00:00",
+  "last_updated": "2025-12-03T05:06:19.364886+00:00",
   "total_samples": 3,
   "total_events": 73429,
   "collections": {
@@ -187,7 +187,9 @@
   "history": [
     {
       "ts": "2025-12-02T22:20:22.405696+00:00",
+      "duration_sec": 60,
       "total": 25952,
+      "eps": 432.5,
       "counts": {
         "app.bsky.feed.like": 17203,
         "app.bsky.feed.post": 2948,
@@ -209,11 +211,35 @@
         "app.bsky.graph.starterpack": 1,
         "chat.bsky.actor.declaration": 1,
         "social.pinksky.app.preference": 8
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 286.72,
+        "app.bsky.feed.post": 49.13,
+        "app.bsky.feed.threadgate": 2.1,
+        "app.bsky.graph.follow": 36.35,
+        "app.bsky.feed.repost": 47.85,
+        "app.bsky.graph.listitem": 3.38,
+        "app.bsky.graph.block": 3.1,
+        "fm.teal.alpha.actor.status": 0.73,
+        "app.bsky.actor.status": 0.27,
+        "app.bsky.feed.postgate": 0.83,
+        "net.anisota.beta.game.session": 0.3,
+        "net.anisota.beta.game.log": 0.38,
+        "app.bsky.actor.profile": 1.0,
+        "com.blatball.team": 0.07,
+        "place.stream.broadcast.origin": 0.12,
+        "app.rocksky.scrobble": 0.02,
+        "app.bsky.graph.list": 0.02,
+        "app.bsky.graph.starterpack": 0.02,
+        "chat.bsky.actor.declaration": 0.02,
+        "social.pinksky.app.preference": 0.13
       }
     },
     {
       "ts": "2025-12-02T22:36:03.590860+00:00",
+      "duration_sec": 60,
       "total": 25353,
+      "eps": 422.6,
       "counts": {
         "app.bsky.feed.like": 16933,
         "app.bsky.feed.post": 3037,
@@ -237,11 +263,37 @@
         "jp.5leaf.sync.mastodon": 1,
         "com.blatball.team": 4,
         "net.anisota.harvest.minigame": 2
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 282.22,
+        "app.bsky.feed.post": 50.62,
+        "app.bsky.feed.repost": 45.25,
+        "app.bsky.graph.follow": 35.32,
+        "app.bsky.graph.block": 2.72,
+        "app.bsky.feed.threadgate": 1.95,
+        "app.bsky.feed.postgate": 0.97,
+        "app.bsky.actor.profile": 1.07,
+        "net.anisota.beta.game.progress": 0.02,
+        "app.bsky.actor.status": 0.27,
+        "fm.teal.alpha.feed.play": 0.05,
+        "app.bsky.graph.listitem": 0.65,
+        "fm.teal.alpha.actor.status": 0.75,
+        "place.stream.broadcast.origin": 0.17,
+        "app.bsky.graph.listblock": 0.03,
+        "net.anisota.beta.game.session": 0.17,
+        "net.anisota.beta.game.log": 0.2,
+        "chat.bsky.actor.declaration": 0.02,
+        "app.bsky.feed.generator": 0.02,
+        "jp.5leaf.sync.mastodon": 0.02,
+        "com.blatball.team": 0.07,
+        "net.anisota.harvest.minigame": 0.03
       }
     },
     {
       "ts": "2025-12-03T01:54:59.576832+00:00",
+      "duration_sec": 60,
       "total": 22124,
+      "eps": 368.7,
       "counts": {
         "app.bsky.feed.like": 14892,
         "app.bsky.feed.repost": 2490,
@@ -267,6 +319,32 @@
         "stream.thought.ack": 1,
         "fm.teal.alpha.feed.play": 1,
         "app.bsky.graph.starterpack": 1
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 248.2,
+        "app.bsky.feed.repost": 41.5,
+        "app.bsky.graph.follow": 28.22,
+        "app.bsky.feed.post": 40.88,
+        "app.bsky.actor.profile": 1.28,
+        "app.bsky.graph.block": 2.55,
+        "app.bsky.actor.status": 0.25,
+        "app.bsky.feed.threadgate": 2.03,
+        "app.bsky.feed.postgate": 1.17,
+        "place.stream.broadcast.origin": 0.13,
+        "app.bsky.graph.listitem": 0.83,
+        "app.bsky.notification.declaration": 0.03,
+        "net.anisota.beta.game.session": 0.13,
+        "net.anisota.beta.game.log": 0.2,
+        "net.anisota.harvest.minigame": 0.03,
+        "fm.teal.alpha.actor.status": 0.88,
+        "net.anisota.beta.game.collection": 0.03,
+        "net.anisota.beta.game.progress": 0.02,
+        "pet.nkp.uptime.check": 0.17,
+        "chat.bsky.actor.declaration": 0.07,
+        "com.blatball.team": 0.07,
+        "stream.thought.ack": 0.02,
+        "fm.teal.alpha.feed.play": 0.02,
+        "app.bsky.graph.starterpack": 0.02
       }
     }
   ]
