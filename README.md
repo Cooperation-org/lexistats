@@ -1,10 +1,10 @@
-# atstats
+# lexistats
 
 Lightweight ATProto lexicon usage sampler using GitHub Actions.
 
 [![Sample Jetstream](../../actions/workflows/sample.yml/badge.svg)](../../actions/workflows/sample.yml)
 
-**[View Live Dashboard](https://golda.github.io/atstats/)**
+**[View Live Dashboard](https://cooperation-org.github.io/lexistats/)**
 
 ## What it does
 
@@ -12,15 +12,16 @@ Every 6 hours, samples the [Bluesky Jetstream](https://github.com/bluesky-social
 
 ## Features
 
-- Collection usage counts and percentages
+- Lexicon usage counts and percentages (events/sec for fair comparison)
 - Historical trends over time
-- Interactive charts showing events and top collections
-- First/last seen timestamps per collection
+- Interactive charts showing network activity
+- Links to lexicon schemas (GitHub for official, Lexidex for third-party)
+- Grouped by authority domain
 
 ## Data
 
 - [stats.json](stats.json) - Raw aggregated data with history
-- [Live dashboard](https://golda.github.io/atstats/) - Visual display
+- [Live dashboard](https://cooperation-org.github.io/lexistats/) - Visual display
 
 ## Setup
 
