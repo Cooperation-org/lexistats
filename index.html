@@ -237,15 +237,23 @@
             `;
 
             if (stats.history && stats.history.length >= 1) {
-                // Get third-party lexicons
+                // Get third-party lexicons and authorities
                 const thirdPartyLexicons = Object.entries(stats.collections)
                     .filter(([name]) => !OFFICIAL_AUTHORITIES.includes(getAuthority(name)));
 
                 if (thirdPartyLexicons.length > 0) {
                     html += `
                         <div class="chart-container">
-                            <h3>Third-Party Lexicons (events/sec)</h3>
+                            <h3>Third-Party Lexicon Distribution</h3>
+                            <canvas id="thirdPartyBarChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Third-Party Lexicons Over Time (events/sec)</h3>
                             <canvas id="thirdPartyChart"></canvas>
+                        </div>
+                        <div class="chart-container" style="max-width: 500px;">
+                            <h3>Third-Party Domains</h3>
+                            <canvas id="domainPieChart"></canvas>
                         </div>
                     `;
                 }
@@ -260,7 +268,7 @@
                         <canvas id="collectionsChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Lexicon Distribution</h3>
+                        <h3>All Lexicon Distribution</h3>
                         <canvas id="barChart"></canvas>
                     </div>
                 `;
@@ -361,13 +369,44 @@
         }
 
         function renderCharts(stats) {
-            const chartColors = ['#58a6ff', '#238636', '#f0883e', '#a371f7', '#f85149', '#3fb950', '#79c0ff', '#d29922'];
+            const chartColors = ['#58a6ff', '#238636', '#f0883e', '#a371f7', '#f85149', '#3fb950', '#79c0ff', '#d29922', '#ff7b72', '#7ee787', '#a5d6ff', '#ffa657'];
 
-            // Third-party lexicons chart (at top)
-            const thirdPartyNames = Object.keys(stats.collections)
-                .filter(name => !OFFICIAL_AUTHORITIES.includes(getAuthority(name)))
-                .slice(0, 8);
+            // Third-party lexicons
+            const thirdPartyLexicons = Object.entries(stats.collections)
+                .filter(([name]) => !OFFICIAL_AUTHORITIES.includes(getAuthority(name)));
+            const thirdPartyNames = thirdPartyLexicons.map(([name]) => name).slice(0, 12);
 
+            // Third-party bar chart (distribution)
+            if (thirdPartyLexicons.length > 0 && document.getElementById('thirdPartyBarChart')) {
+                const top12 = thirdPartyLexicons.slice(0, 12);
+                new Chart(document.getElementById('thirdPartyBarChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: top12.map(([name]) => {
+                            const auth = getAuthority(name);
+                            const rest = name.substring(auth.length + 1);
+                            return authorityToDomain(auth) + ': ' + rest;
+                        }),
+                        datasets: [{
+                            label: 'Events',
+                            data: top12.map(([, data]) => data.count),
+                            backgroundColor: chartColors.slice(0, 12),
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        indexAxis: 'y',
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                            y: { grid: { display: false }, ticks: { color: '#c9d1d9', font: { size: 11 } } }
+                        }
+                    }
+                });
+            }
+
+            // Third-party line chart (over time)
             if (thirdPartyNames.length > 0 && document.getElementById('thirdPartyChart')) {
                 new Chart(document.getElementById('thirdPartyChart'), {
                     type: 'line',
@@ -376,8 +415,8 @@
                             const d = new Date(h.ts);
                             return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                         }),
-                        datasets: thirdPartyNames.map((name, i) => ({
-                            label: name.split('.').slice(0, 2).reverse().join('.') + ': ' + name.split('.').slice(-1)[0],
+                        datasets: thirdPartyNames.slice(0, 8).map((name, i) => ({
+                            label: authorityToDomain(getAuthority(name)) + ': ' + name.split('.').slice(-1)[0],
                             data: stats.history.map(h => {
                                 if (h.counts_per_sec && h.counts_per_sec[name] !== undefined) {
                                     return h.counts_per_sec[name];
@@ -400,6 +439,37 @@
                                 grid: { color: '#30363d' },
                                 ticks: { color: '#8b949e' },
                                 title: { display: true, text: 'events/sec', color: '#8b949e' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Third-party domain pie chart
+            if (thirdPartyLexicons.length > 0 && document.getElementById('domainPieChart')) {
+                // Group by domain
+                const domainCounts = {};
+                for (const [name, data] of thirdPartyLexicons) {
+                    const domain = authorityToDomain(getAuthority(name));
+                    domainCounts[domain] = (domainCounts[domain] || 0) + data.count;
+                }
+                const sortedDomains = Object.entries(domainCounts).sort((a, b) => b[1] - a[1]);
+
+                new Chart(document.getElementById('domainPieChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: sortedDomains.map(([d]) => d),
+                        datasets: [{
+                            data: sortedDomains.map(([, c]) => c),
+                            backgroundColor: chartColors.slice(0, sortedDomains.length)
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: { color: '#c9d1d9' }
                             }
                         }
                     }
@@ -465,7 +535,7 @@
             });
 
             // Top collections over time
-            const topNames = Object.keys(stats.collections).slice(0, 5);
+            const topNames = Object.keys(stats.collections).slice(0, 12);
             if (document.getElementById('collectionsChart')) {
                 new Chart(document.getElementById('collectionsChart'), {
                     type: 'line',
