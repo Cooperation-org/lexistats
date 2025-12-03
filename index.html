@@ -237,24 +237,33 @@
             `;
 
             if (stats.history && stats.history.length >= 1) {
-                html += `
-                    <div class="chart-container">
-                        <h3>Events Per Second Over Time</h3>
-                        <canvas id="historyChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Current Lexicon Distribution</h3>
-                        <canvas id="barChart"></canvas>
-                    </div>
-                `;
-                if (stats.history.length > 1) {
+                // Get third-party lexicons
+                const thirdPartyLexicons = Object.entries(stats.collections)
+                    .filter(([name]) => !OFFICIAL_AUTHORITIES.includes(getAuthority(name)));
+
+                if (thirdPartyLexicons.length > 0) {
                     html += `
                         <div class="chart-container">
-                            <h3>Top Lexicons Over Time (events/sec)</h3>
-                            <canvas id="collectionsChart"></canvas>
+                            <h3>Third-Party Lexicons (events/sec)</h3>
+                            <canvas id="thirdPartyChart"></canvas>
                         </div>
                     `;
                 }
+
+                html += `
+                    <div class="chart-container">
+                        <h3>Network Activity (events/sec)</h3>
+                        <canvas id="historyChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Top Lexicons Over Time (events/sec)</h3>
+                        <canvas id="collectionsChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Lexicon Distribution</h3>
+                        <canvas id="barChart"></canvas>
+                    </div>
+                `;
             }
 
             html += `<h2>Lexicons by Authority</h2>`;
@@ -354,6 +363,49 @@
         function renderCharts(stats) {
             const chartColors = ['#58a6ff', '#238636', '#f0883e', '#a371f7', '#f85149', '#3fb950', '#79c0ff', '#d29922'];
 
+            // Third-party lexicons chart (at top)
+            const thirdPartyNames = Object.keys(stats.collections)
+                .filter(name => !OFFICIAL_AUTHORITIES.includes(getAuthority(name)))
+                .slice(0, 8);
+
+            if (thirdPartyNames.length > 0 && document.getElementById('thirdPartyChart')) {
+                new Chart(document.getElementById('thirdPartyChart'), {
+                    type: 'line',
+                    data: {
+                        labels: stats.history.map(h => {
+                            const d = new Date(h.ts);
+                            return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                        }),
+                        datasets: thirdPartyNames.map((name, i) => ({
+                            label: name.split('.').slice(0, 2).reverse().join('.') + ': ' + name.split('.').slice(-1)[0],
+                            data: stats.history.map(h => {
+                                if (h.counts_per_sec && h.counts_per_sec[name] !== undefined) {
+                                    return h.counts_per_sec[name];
+                                }
+                                const count = h.counts[name] || 0;
+                                const duration = h.duration_sec || 60;
+                                return Math.round(count / duration * 100) / 100;
+                            }),
+                            borderColor: chartColors[i % chartColors.length],
+                            tension: 0.3,
+                            fill: false
+                        }))
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { labels: { color: '#c9d1d9' } } },
+                        scales: {
+                            x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                            y: {
+                                grid: { color: '#30363d' },
+                                ticks: { color: '#8b949e' },
+                                title: { display: true, text: 'events/sec', color: '#8b949e' }
+                            }
+                        }
+                    }
+                });
+            }
+
             // Events per second over time (line chart)
             new Chart(document.getElementById('historyChart'), {
                 type: 'line',
@@ -412,9 +464,9 @@
                 }
             });
 
-            // Top collections over time (only if multiple samples)
-            if (stats.history.length > 1) {
-                const topNames = Object.keys(stats.collections).slice(0, 5);
+            // Top collections over time
+            const topNames = Object.keys(stats.collections).slice(0, 5);
+            if (document.getElementById('collectionsChart')) {
                 new Chart(document.getElementById('collectionsChart'), {
                     type: 'line',
                     data: {
