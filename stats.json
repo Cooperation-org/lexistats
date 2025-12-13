@@ -1,79 +1,79 @@
 {
-  "last_updated": "2025-12-12T18:38:00.364462+00:00",
-  "total_samples": 45,
-  "total_events": 876496,
+  "last_updated": "2025-12-13T01:52:37.047444+00:00",
+  "total_samples": 46,
+  "total_events": 895364,
   "collections": {
     "app.bsky.feed.like": {
-      "count": 582355,
-      "pct": 66.44,
+      "count": 594381,
+      "pct": 66.38,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.feed.post": {
-      "count": 109164,
-      "pct": 12.45,
+      "count": 111530,
+      "pct": 12.46,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.feed.repost": {
-      "count": 92911,
-      "pct": 10.6,
+      "count": 94809,
+      "pct": 10.59,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.graph.follow": {
-      "count": 70495,
-      "pct": 8.04,
+      "count": 72632,
+      "pct": 8.11,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.graph.block": {
-      "count": 6113,
+      "count": 6239,
       "pct": 0.7,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.feed.threadgate": {
-      "count": 4616,
+      "count": 4714,
       "pct": 0.53,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.actor.profile": {
-      "count": 2722,
+      "count": 2782,
       "pct": 0.31,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.feed.postgate": {
-      "count": 2172,
+      "count": 2223,
       "pct": 0.25,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "fm.teal.alpha.actor.status": {
-      "count": 2041,
+      "count": 2079,
       "pct": 0.23,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.graph.listitem": {
-      "count": 1744,
+      "count": 1760,
       "pct": 0.2,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.actor.status": {
-      "count": 593,
+      "count": 610,
       "pct": 0.07,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "place.stream.broadcast.origin": {
-      "count": 395,
+      "count": 405,
       "pct": 0.05,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "net.anisota.beta.game.log": {
       "count": 189,
@@ -82,10 +82,16 @@
       "last_seen": "2025-12-11T01:59:28.290881+00:00"
     },
     "com.blatball.team": {
-      "count": 183,
+      "count": 187,
       "pct": 0.02,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
+    },
+    "pet.nkp.uptime.check": {
+      "count": 130,
+      "pct": 0.01,
+      "first_seen": "2025-12-03T01:54:59.576832+00:00",
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "net.anisota.beta.game.session": {
       "count": 128,
@@ -93,17 +99,11 @@
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
       "last_seen": "2025-12-11T01:59:28.290881+00:00"
     },
-    "pet.nkp.uptime.check": {
-      "count": 120,
-      "pct": 0.01,
-      "first_seen": "2025-12-03T01:54:59.576832+00:00",
-      "last_seen": "2025-12-12T12:53:31.914340+00:00"
-    },
     "fm.teal.alpha.feed.play": {
-      "count": 76,
+      "count": 78,
       "pct": 0.01,
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "jp.5leaf.sync.mastodon": {
       "count": 42,
@@ -112,10 +112,10 @@
       "last_seen": "2025-12-12T18:38:00.306853+00:00"
     },
     "chat.bsky.actor.declaration": {
-      "count": 35,
+      "count": 37,
       "pct": 0.0,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2025-12-12T01:58:31.686357+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "org.bbsscene.file.entry": {
       "count": 30,
@@ -124,10 +124,10 @@
       "last_seen": "2025-12-09T18:34:05.392587+00:00"
     },
     "stream.thought.reasoning": {
-      "count": 27,
+      "count": 28,
       "pct": 0.0,
       "first_seen": "2025-12-03T18:38:24.277046+00:00",
-      "last_seen": "2025-12-11T12:55:41.538004+00:00"
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
     },
     "app.bsky.graph.list": {
       "count": 26,
@@ -153,17 +153,17 @@
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
       "last_seen": "2025-12-12T18:38:00.306853+00:00"
     },
+    "stream.thought.tool.call": {
+      "count": 20,
+      "pct": 0.0,
+      "first_seen": "2025-12-03T18:38:24.277046+00:00",
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
+    },
     "app.bsky.graph.listblock": {
       "count": 19,
       "pct": 0.0,
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
       "last_seen": "2025-12-12T01:58:31.686357+00:00"
-    },
-    "stream.thought.tool.call": {
-      "count": 19,
-      "pct": 0.0,
-      "first_seen": "2025-12-03T18:38:24.277046+00:00",
-      "last_seen": "2025-12-11T12:55:41.538004+00:00"
     },
     "net.anisota.harvest.minigame": {
       "count": 17,
@@ -171,17 +171,17 @@
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
       "last_seen": "2025-12-08T01:57:07.710311+00:00"
     },
+    "blue.flashes.feed.post": {
+      "count": 14,
+      "pct": 0.0,
+      "first_seen": "2025-12-03T05:10:08.702477+00:00",
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
+    },
     "app.bsky.graph.starterpack": {
       "count": 13,
       "pct": 0.0,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
       "last_seen": "2025-12-11T01:59:28.290881+00:00"
-    },
-    "blue.flashes.feed.post": {
-      "count": 13,
-      "pct": 0.0,
-      "first_seen": "2025-12-03T05:10:08.702477+00:00",
-      "last_seen": "2025-12-12T18:38:00.306853+00:00"
     },
     "app.rocksky.song": {
       "count": 13,
@@ -231,6 +231,12 @@
       "first_seen": "2025-12-04T01:55:40.755859+00:00",
       "last_seen": "2025-12-11T06:40:12.370642+00:00"
     },
+    "place.stream.chat.message": {
+      "count": 7,
+      "pct": 0.0,
+      "first_seen": "2025-12-05T18:33:19.073612+00:00",
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
+    },
     "stream.thought.ack": {
       "count": 6,
       "pct": 0.0,
@@ -267,23 +273,17 @@
       "first_seen": "2025-12-03T01:54:59.576832+00:00",
       "last_seen": "2025-12-07T12:44:22.075345+00:00"
     },
+    "sh.tangled.repo": {
+      "count": 4,
+      "pct": 0.0,
+      "first_seen": "2025-12-03T05:10:08.702477+00:00",
+      "last_seen": "2025-12-13T01:52:36.992074+00:00"
+    },
     "network.cosmik.collection": {
       "count": 4,
       "pct": 0.0,
       "first_seen": "2025-12-03T18:38:24.277046+00:00",
       "last_seen": "2025-12-11T18:36:58.565804+00:00"
-    },
-    "place.stream.chat.message": {
-      "count": 4,
-      "pct": 0.0,
-      "first_seen": "2025-12-05T18:33:19.073612+00:00",
-      "last_seen": "2025-12-07T18:32:35.098798+00:00"
-    },
-    "sh.tangled.repo": {
-      "count": 3,
-      "pct": 0.0,
-      "first_seen": "2025-12-03T05:10:08.702477+00:00",
-      "last_seen": "2025-12-05T18:33:19.073612+00:00"
     },
     "app.rocksky.album": {
       "count": 3,
@@ -2809,6 +2809,58 @@
         "com.atprotofans.high-five.brokerProof": 0.02,
         "com.atprotofans.high-five.highFiveProof": 0.02,
         "app.bsky.feed.generator": 0.02
+      }
+    },
+    {
+      "ts": "2025-12-13T01:52:36.992074+00:00",
+      "duration_sec": 60,
+      "total": 18868,
+      "eps": 314.5,
+      "counts": {
+        "app.bsky.feed.like": 12026,
+        "app.bsky.graph.follow": 2137,
+        "app.bsky.feed.post": 2366,
+        "app.bsky.feed.repost": 1898,
+        "app.bsky.actor.profile": 60,
+        "app.bsky.feed.threadgate": 98,
+        "app.bsky.graph.block": 126,
+        "app.bsky.graph.listitem": 16,
+        "app.bsky.feed.postgate": 51,
+        "place.stream.broadcast.origin": 10,
+        "app.bsky.actor.status": 17,
+        "fm.teal.alpha.actor.status": 38,
+        "place.stream.chat.message": 3,
+        "fm.teal.alpha.feed.play": 2,
+        "chat.bsky.actor.declaration": 2,
+        "com.blatball.team": 4,
+        "pet.nkp.uptime.check": 10,
+        "sh.tangled.repo": 1,
+        "blue.flashes.feed.post": 1,
+        "stream.thought.reasoning": 1,
+        "stream.thought.tool.call": 1
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 200.43,
+        "app.bsky.graph.follow": 35.62,
+        "app.bsky.feed.post": 39.43,
+        "app.bsky.feed.repost": 31.63,
+        "app.bsky.actor.profile": 1.0,
+        "app.bsky.feed.threadgate": 1.63,
+        "app.bsky.graph.block": 2.1,
+        "app.bsky.graph.listitem": 0.27,
+        "app.bsky.feed.postgate": 0.85,
+        "place.stream.broadcast.origin": 0.17,
+        "app.bsky.actor.status": 0.28,
+        "fm.teal.alpha.actor.status": 0.63,
+        "place.stream.chat.message": 0.05,
+        "fm.teal.alpha.feed.play": 0.03,
+        "chat.bsky.actor.declaration": 0.03,
+        "com.blatball.team": 0.07,
+        "pet.nkp.uptime.check": 0.17,
+        "sh.tangled.repo": 0.02,
+        "blue.flashes.feed.post": 0.02,
+        "stream.thought.reasoning": 0.02,
+        "stream.thought.tool.call": 0.02
       }
     }
   ]
