@@ -1,0 +1,33 @@
+{
+  "ts": "2026-02-11T19:10:06.178210+00:00",
+  "duration_sec": 60,
+  "total": 29923,
+  "counts": {
+    "app.bsky.feed.like": 19736,
+    "app.bsky.feed.repost": 3782,
+    "app.bsky.feed.post": 3221,
+    "app.bsky.graph.block": 177,
+    "app.bsky.graph.follow": 2533,
+    "app.bsky.actor.profile": 93,
+    "app.bsky.feed.threadgate": 155,
+    "dev.sensorthings.observationBatch": 43,
+    "app.bsky.graph.listitem": 29,
+    "app.bsky.feed.postgate": 68,
+    "at.podping.records.podping": 14,
+    "link.bridgebeats.lookup": 14,
+    "place.stream.chat.message": 2,
+    "app.bsky.actor.status": 10,
+    "jp.5leaf.sync.mastodon": 3,
+    "place.stream.broadcast.origin": 10,
+    "fm.teal.alpha.feed.play": 2,
+    "site.standard.document": 20,
+    "app.gainforest.dwc.occurrence": 4,
+    "app.bsky.labeler.service": 1,
+    "sh.tangled.graph.follow": 1,
+    "team.sigint.dm.n": 1,
+    "team.sigint.dm.ct": 1,
+    "team.sigint.dm.at": 1,
+    "fm.teal.alpha.actor.status": 1,
+    "app.bsky.feed.generator": 1
+  }
+}
