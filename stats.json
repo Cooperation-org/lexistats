@@ -1,73 +1,73 @@
 {
-  "last_updated": "2026-05-15T19:29:09.821427+00:00",
-  "total_samples": 1162,
-  "total_events": 25478545,
+  "last_updated": "2026-05-15T21:00:39.485593+00:00",
+  "total_samples": 1163,
+  "total_events": 25504691,
   "collections": {
     "app.bsky.feed.like": {
-      "count": 16701517,
+      "count": 16717754,
       "pct": 65.55,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.feed.post": {
-      "count": 3102222,
+      "count": 3106144,
       "pct": 12.18,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.feed.repost": {
-      "count": 2801434,
-      "pct": 11.0,
+      "count": 2804148,
+      "pct": 10.99,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.graph.follow": {
-      "count": 1964955,
+      "count": 1967026,
       "pct": 7.71,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.graph.block": {
-      "count": 224133,
+      "count": 224503,
       "pct": 0.88,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.feed.threadgate": {
-      "count": 148220,
+      "count": 148344,
       "pct": 0.58,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.actor.profile": {
-      "count": 90076,
+      "count": 90165,
       "pct": 0.35,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.feed.postgate": {
-      "count": 78448,
+      "count": 78504,
       "pct": 0.31,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "at.podping.records.podping": {
-      "count": 67183,
+      "count": 67197,
       "pct": 0.26,
       "first_seen": "2026-01-03T01:56:10.981125+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.graph.listitem": {
-      "count": 51828,
+      "count": 51848,
       "pct": 0.2,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "cx.vmx.matadisco": {
-      "count": 32883,
+      "count": 33133,
       "pct": 0.13,
       "first_seen": "2026-03-04T13:06:42.393847+00:00",
-      "last_seen": "2026-05-15T07:51:42.224392+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "place.stream.live.viewerCount": {
       "count": 32737,
@@ -76,16 +76,16 @@
       "last_seen": "2026-05-09T14:51:12.816196+00:00"
     },
     "app.bsky.actor.status": {
-      "count": 20716,
+      "count": 20761,
       "pct": 0.08,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "site.standard.document": {
-      "count": 16404,
+      "count": 16432,
       "pct": 0.06,
       "first_seen": "2026-01-23T18:41:05.797051+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "games.gamesgamesgamesgames.org.profile": {
       "count": 13600,
@@ -94,10 +94,10 @@
       "last_seen": "2026-04-08T15:11:19.559254+00:00"
     },
     "place.stream.broadcast.origin": {
-      "count": 11134,
+      "count": 11144,
       "pct": 0.04,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "com.literarycommons.line": {
       "count": 10167,
@@ -106,16 +106,16 @@
       "last_seen": "2026-03-16T02:48:46.910360+00:00"
     },
     "fm.teal.alpha.feed.play": {
-      "count": 8362,
+      "count": 8367,
       "pct": 0.03,
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "tech.transparencia.news.article": {
-      "count": 7935,
+      "count": 8045,
       "pct": 0.03,
       "first_seen": "2026-04-04T22:30:53.247852+00:00",
-      "last_seen": "2026-05-14T17:01:51.180788+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "games.gamesgamesgamesgames.org.credit": {
       "count": 7900,
@@ -130,16 +130,16 @@
       "last_seen": "2026-05-15T17:27:41.046928+00:00"
     },
     "place.stream.livestream": {
-      "count": 7546,
+      "count": 7556,
       "pct": 0.03,
       "first_seen": "2025-12-15T06:41:56.050520+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "fm.teal.alpha.actor.status": {
-      "count": 6210,
+      "count": 6215,
       "pct": 0.02,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "dev.sensorthings.observationBatch": {
       "count": 6083,
@@ -148,10 +148,10 @@
       "last_seen": "2026-04-11T02:11:58.675866+00:00"
     },
     "chat.bsky.actor.declaration": {
-      "count": 5920,
+      "count": 5930,
       "pct": 0.02,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "games.gamesgamesgamesgames.game": {
       "count": 5656,
@@ -166,10 +166,10 @@
       "last_seen": "2026-05-13T12:04:14.263524+00:00"
     },
     "jp.5leaf.sync.mastodon": {
-      "count": 1449,
+      "count": 1462,
       "pct": 0.01,
       "first_seen": "2025-12-02T22:36:03.590860+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.graph.listblock": {
       "count": 1375,
@@ -184,10 +184,10 @@
       "last_seen": "2026-05-15T04:12:02.099885+00:00"
     },
     "com.puzzmo.streak": {
-      "count": 1326,
+      "count": 1331,
       "pct": 0.01,
       "first_seen": "2026-02-27T18:52:27.876117+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "community.lexicon.sports.baseball.gameState": {
       "count": 1238,
@@ -196,34 +196,34 @@
       "last_seen": "2026-05-15T04:12:02.099885+00:00"
     },
     "app.bsky.labeler.service": {
-      "count": 1222,
+      "count": 1223,
       "pct": 0.0,
       "first_seen": "2025-12-03T06:38:14.079353+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "team.sigint.dm.n": {
+      "count": 1221,
+      "pct": 0.0,
+      "first_seen": "2025-12-18T12:53:15.590153+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
+    "team.sigint.dm.at": {
       "count": 1220,
       "pct": 0.0,
       "first_seen": "2025-12-18T12:53:15.590153+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
-    },
-    "team.sigint.dm.at": {
-      "count": 1219,
-      "pct": 0.0,
-      "first_seen": "2025-12-18T12:53:15.590153+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "team.sigint.dm.ct": {
-      "count": 1217,
+      "count": 1218,
       "pct": 0.0,
       "first_seen": "2025-12-18T12:53:15.590153+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.rocksky.scrobble": {
-      "count": 1199,
+      "count": 1201,
       "pct": 0.0,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "com.blatball.team": {
       "count": 1147,
@@ -232,16 +232,16 @@
       "last_seen": "2026-02-11T13:21:06.713432+00:00"
     },
     "app.rocksky.song": {
-      "count": 993,
+      "count": 994,
       "pct": 0.0,
       "first_seen": "2025-12-03T12:54:21.105279+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.graph.list": {
-      "count": 944,
+      "count": 945,
       "pct": 0.0,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "cx.vmx.dev.tmp001.matadisco": {
       "count": 941,
@@ -274,10 +274,10 @@
       "last_seen": "2026-04-17T16:02:27.689859+00:00"
     },
     "net.anisota.chronicle.expedition": {
-      "count": 835,
+      "count": 836,
       "pct": 0.0,
       "first_seen": "2026-03-10T02:26:44.387017+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "social.popfeed.feed.listItem": {
       "count": 828,
@@ -286,10 +286,10 @@
       "last_seen": "2026-05-14T22:56:47.005502+00:00"
     },
     "place.stream.chat.message": {
-      "count": 813,
+      "count": 816,
       "pct": 0.0,
       "first_seen": "2025-12-05T18:33:19.073612+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "host.plural.system.member": {
       "count": 730,
@@ -310,16 +310,16 @@
       "last_seen": "2026-04-07T09:03:15.268428+00:00"
     },
     "app.ch.poltr.review.invitation": {
-      "count": 645,
+      "count": 659,
       "pct": 0.0,
       "first_seen": "2026-05-11T11:20:04.828773+00:00",
-      "last_seen": "2026-05-15T19:29:03.874735+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "net.anisota.player.state": {
-      "count": 644,
+      "count": 645,
       "pct": 0.0,
       "first_seen": "2026-03-03T02:34:42.312433+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "app.bsky.notification.declaration": {
       "count": 615,
@@ -364,10 +364,10 @@
       "last_seen": "2026-05-15T04:12:02.099885+00:00"
     },
     "app.rocksky.album": {
-      "count": 365,
+      "count": 366,
       "pct": 0.0,
       "first_seen": "2025-12-03T12:54:21.105279+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "net.anisota.beta.game.log": {
       "count": 349,
@@ -447,17 +447,17 @@
       "first_seen": "2025-12-03T18:38:24.277046+00:00",
       "last_seen": "2026-02-25T02:34:45.361879+00:00"
     },
+    "app.rocksky.artist": {
+      "count": 212,
+      "pct": 0.0,
+      "first_seen": "2025-12-27T01:56:55.280310+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
     "network.cosmik.card": {
       "count": 211,
       "pct": 0.0,
       "first_seen": "2025-12-03T18:38:24.277046+00:00",
       "last_seen": "2026-05-15T19:29:03.874735+00:00"
-    },
-    "app.rocksky.artist": {
-      "count": 211,
-      "pct": 0.0,
-      "first_seen": "2025-12-27T01:56:55.280310+00:00",
-      "last_seen": "2026-05-15T17:27:41.046928+00:00"
     },
     "net.wafrn.feed.bite": {
       "count": 211,
@@ -532,10 +532,10 @@
       "last_seen": "2026-05-15T17:27:41.046928+00:00"
     },
     "at.noted.radio.play": {
-      "count": 140,
+      "count": 141,
       "pct": 0.0,
       "first_seen": "2026-04-10T05:25:36.385922+00:00",
-      "last_seen": "2026-05-11T22:54:28.834346+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "tech.transparencia.news.source": {
       "count": 138,
@@ -586,10 +586,10 @@
       "last_seen": "2026-05-14T11:53:04.909828+00:00"
     },
     "social.grain.favorite": {
-      "count": 100,
+      "count": 101,
       "pct": 0.0,
       "first_seen": "2026-04-03T05:05:43.812356+00:00",
-      "last_seen": "2026-05-09T02:52:13.344714+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "sh.tangled.feed.star": {
       "count": 99,
@@ -850,10 +850,10 @@
       "last_seen": "2026-05-01T22:51:17.832298+00:00"
     },
     "actor.rpg.stats": {
-      "count": 48,
+      "count": 49,
       "pct": 0.0,
       "first_seen": "2026-03-28T02:07:53.480117+00:00",
-      "last_seen": "2026-05-14T21:10:03.304350+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "actor.rpg.master": {
       "count": 47,
@@ -879,17 +879,17 @@
       "first_seen": "2026-03-31T09:00:38.216562+00:00",
       "last_seen": "2026-04-01T17:52:54.570166+00:00"
     },
+    "sh.tangled.graph.follow": {
+      "count": 44,
+      "pct": 0.0,
+      "first_seen": "2025-12-17T01:54:39.474132+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
     "store.lexicon.log": {
       "count": 44,
       "pct": 0.0,
       "first_seen": "2026-01-10T12:49:24.494700+00:00",
       "last_seen": "2026-05-04T18:15:14.152759+00:00"
-    },
-    "sh.tangled.graph.follow": {
-      "count": 43,
-      "pct": 0.0,
-      "first_seen": "2025-12-17T01:54:39.474132+00:00",
-      "last_seen": "2026-05-10T22:47:50.046558+00:00"
     },
     "dev.sensorthings.observation": {
       "count": 43,
@@ -940,10 +940,10 @@
       "last_seen": "2026-05-13T23:59:02.037853+00:00"
     },
     "io.atcr.hold.stats": {
-      "count": 36,
+      "count": 37,
       "pct": 0.0,
       "first_seen": "2026-02-25T02:34:45.361879+00:00",
-      "last_seen": "2026-05-14T04:00:08.602390+00:00"
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
     },
     "systems.gaze.atfronter.fronter": {
       "count": 34,
@@ -993,6 +993,12 @@
       "first_seen": "2026-04-05T02:29:48.707182+00:00",
       "last_seen": "2026-05-13T23:59:02.037853+00:00"
     },
+    "io.atcr.hold.stats.daily": {
+      "count": 32,
+      "pct": 0.0,
+      "first_seen": "2026-04-07T19:57:32.117585+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
     "community.lexicon.preference.ai": {
       "count": 32,
       "pct": 0.0,
@@ -1016,12 +1022,6 @@
       "pct": 0.0,
       "first_seen": "2026-03-28T17:29:39.673637+00:00",
       "last_seen": "2026-05-11T23:58:26.170193+00:00"
-    },
-    "io.atcr.hold.stats.daily": {
-      "count": 31,
-      "pct": 0.0,
-      "first_seen": "2026-04-07T19:57:32.117585+00:00",
-      "last_seen": "2026-05-14T04:00:08.602390+00:00"
     },
     "sh.tangled.publicKey": {
       "count": 30,
@@ -1311,6 +1311,12 @@
       "first_seen": "2026-03-05T06:59:26.906767+00:00",
       "last_seen": "2026-03-05T06:59:26.906767+00:00"
     },
+    "app.tomarigi.feed.post": {
+      "count": 19,
+      "pct": 0.0,
+      "first_seen": "2026-04-21T13:27:13.096893+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
     "omni.me.storage": {
       "count": 18,
       "pct": 0.0,
@@ -1376,12 +1382,6 @@
       "pct": 0.0,
       "first_seen": "2026-04-04T17:30:46.041881+00:00",
       "last_seen": "2026-05-10T20:47:41.798147+00:00"
-    },
-    "app.tomarigi.feed.post": {
-      "count": 17,
-      "pct": 0.0,
-      "first_seen": "2026-04-21T13:27:13.096893+00:00",
-      "last_seen": "2026-05-10T08:54:24.418050+00:00"
     },
     "place.wisp.fs": {
       "count": 16,
@@ -2961,6 +2961,12 @@
       "first_seen": "2026-04-04T05:57:28.614987+00:00",
       "last_seen": "2026-04-20T20:46:22.037388+00:00"
     },
+    "is.logue.record": {
+      "count": 3,
+      "pct": 0.0,
+      "first_seen": "2026-04-04T20:32:50.441788+00:00",
+      "last_seen": "2026-05-15T21:00:31.639786+00:00"
+    },
     "app.minimap.game": {
       "count": 3,
       "pct": 0.0,
@@ -3458,12 +3464,6 @@
       "pct": 0.0,
       "first_seen": "2026-04-04T19:31:43.492296+00:00",
       "last_seen": "2026-05-05T05:44:03.510034+00:00"
-    },
-    "is.logue.record": {
-      "count": 2,
-      "pct": 0.0,
-      "first_seen": "2026-04-04T20:32:50.441788+00:00",
-      "last_seen": "2026-04-04T20:32:50.441788+00:00"
     },
     "app.opake.keyring": {
       "count": 2,
@@ -92293,6 +92293,100 @@
         "fm.teal.alpha.feed.play": 0.08,
         "network.cosmik.collectionLink": 0.02,
         "jp.5leaf.sync.mastodon": 0.08
+      }
+    },
+    {
+      "ts": "2026-05-15T21:00:31.639786+00:00",
+      "duration_sec": 60,
+      "total": 26146,
+      "eps": 435.8,
+      "counts": {
+        "app.bsky.feed.like": 16237,
+        "app.bsky.graph.follow": 2071,
+        "app.bsky.feed.post": 3922,
+        "app.bsky.feed.repost": 2714,
+        "app.bsky.graph.block": 370,
+        "app.bsky.actor.profile": 89,
+        "sh.tangled.graph.follow": 1,
+        "app.bsky.feed.threadgate": 124,
+        "place.stream.livestream": 10,
+        "place.stream.broadcast.origin": 10,
+        "app.bsky.graph.listitem": 20,
+        "fm.teal.alpha.actor.status": 5,
+        "fm.teal.alpha.feed.play": 5,
+        "jp.5leaf.sync.mastodon": 13,
+        "com.puzzmo.streak": 5,
+        "app.bsky.actor.status": 45,
+        "app.bsky.feed.postgate": 56,
+        "at.podping.records.podping": 14,
+        "app.ch.poltr.review.invitation": 14,
+        "site.standard.document": 28,
+        "place.stream.chat.message": 3,
+        "actor.rpg.stats": 1,
+        "app.tomarigi.feed.post": 2,
+        "social.grain.favorite": 1,
+        "chat.bsky.actor.declaration": 10,
+        "net.anisota.player.state": 1,
+        "app.bsky.labeler.service": 1,
+        "net.anisota.chronicle.expedition": 1,
+        "app.rocksky.song": 1,
+        "tech.transparencia.news.article": 110,
+        "app.rocksky.artist": 1,
+        "app.rocksky.album": 1,
+        "app.rocksky.scrobble": 2,
+        "at.noted.radio.play": 1,
+        "io.atcr.hold.stats": 1,
+        "io.atcr.hold.stats.daily": 1,
+        "team.sigint.dm.n": 1,
+        "team.sigint.dm.ct": 1,
+        "team.sigint.dm.at": 1,
+        "app.bsky.graph.list": 1,
+        "is.logue.record": 1,
+        "cx.vmx.matadisco": 250
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 270.62,
+        "app.bsky.graph.follow": 34.52,
+        "app.bsky.feed.post": 65.37,
+        "app.bsky.feed.repost": 45.23,
+        "app.bsky.graph.block": 6.17,
+        "app.bsky.actor.profile": 1.48,
+        "sh.tangled.graph.follow": 0.02,
+        "app.bsky.feed.threadgate": 2.07,
+        "place.stream.livestream": 0.17,
+        "place.stream.broadcast.origin": 0.17,
+        "app.bsky.graph.listitem": 0.33,
+        "fm.teal.alpha.actor.status": 0.08,
+        "fm.teal.alpha.feed.play": 0.08,
+        "jp.5leaf.sync.mastodon": 0.22,
+        "com.puzzmo.streak": 0.08,
+        "app.bsky.actor.status": 0.75,
+        "app.bsky.feed.postgate": 0.93,
+        "at.podping.records.podping": 0.23,
+        "app.ch.poltr.review.invitation": 0.23,
+        "site.standard.document": 0.47,
+        "place.stream.chat.message": 0.05,
+        "actor.rpg.stats": 0.02,
+        "app.tomarigi.feed.post": 0.03,
+        "social.grain.favorite": 0.02,
+        "chat.bsky.actor.declaration": 0.17,
+        "net.anisota.player.state": 0.02,
+        "app.bsky.labeler.service": 0.02,
+        "net.anisota.chronicle.expedition": 0.02,
+        "app.rocksky.song": 0.02,
+        "tech.transparencia.news.article": 1.83,
+        "app.rocksky.artist": 0.02,
+        "app.rocksky.album": 0.02,
+        "app.rocksky.scrobble": 0.03,
+        "at.noted.radio.play": 0.02,
+        "io.atcr.hold.stats": 0.02,
+        "io.atcr.hold.stats.daily": 0.02,
+        "team.sigint.dm.n": 0.02,
+        "team.sigint.dm.ct": 0.02,
+        "team.sigint.dm.at": 0.02,
+        "app.bsky.graph.list": 0.02,
+        "is.logue.record": 0.02,
+        "cx.vmx.matadisco": 4.17
       }
     }
   ]
