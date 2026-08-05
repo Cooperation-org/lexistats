@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-08-05T17:28:14.470279+00:00",
-  "total_samples": 1918,
-  "total_events": 41585469,
+  "last_updated": "2026-08-05T19:27:59.549139+00:00",
+  "total_samples": 1919,
+  "total_events": 41599197,
   "collections": {
     "app.bsky.feed.like": {
-      "count": 27272077,
-      "pct": 65.58,
+      "count": 27285805,
+      "pct": 65.59,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-05T17:28:10.936216+00:00"
+      "last_seen": "2026-08-05T19:27:59.010017+00:00"
     },
     "app.bsky.feed.post": {
       "count": 5080852,
-      "pct": 12.22,
+      "pct": 12.21,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
       "last_seen": "2026-08-05T17:28:10.936216+00:00"
     },
@@ -143,7 +143,7 @@
     },
     "fm.teal.alpha.actor.status": {
       "count": 10399,
-      "pct": 0.03,
+      "pct": 0.02,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
       "last_seen": "2026-08-05T15:12:44.390666+00:00"
     },
@@ -171235,6 +171235,18 @@
         "team.sigint.dm.ct": 0.02,
         "team.sigint.dm.at": 0.02,
         "net.atmowx.observation": 0.02
+      }
+    },
+    {
+      "ts": "2026-08-05T19:27:59.010017+00:00",
+      "duration_sec": 60,
+      "total": 13728,
+      "eps": 228.8,
+      "counts": {
+        "app.bsky.feed.like": 13728
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 228.8
       }
     }
   ]
