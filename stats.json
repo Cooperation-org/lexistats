@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-08-16T16:22:45.444688+00:00",
-  "total_samples": 2107,
-  "total_events": 45472453,
+  "last_updated": "2026-08-16T17:18:49.245452+00:00",
+  "total_samples": 2108,
+  "total_events": 45472850,
   "collections": {
     "app.bsky.feed.like": {
-      "count": 29790708,
+      "count": 29790948,
       "pct": 65.51,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.feed.post": {
-      "count": 5554393,
+      "count": 5554470,
       "pct": 12.21,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.feed.repost": {
-      "count": 4924802,
+      "count": 4924838,
       "pct": 10.83,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.graph.follow": {
-      "count": 3504235,
+      "count": 3504256,
       "pct": 7.71,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.graph.block": {
-      "count": 417339,
+      "count": 417357,
       "pct": 0.92,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.feed.threadgate": {
-      "count": 279225,
+      "count": 279226,
       "pct": 0.61,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.actor.profile": {
       "count": 156892,
@@ -46,10 +46,10 @@
       "last_seen": "2026-08-16T16:22:42.300399+00:00"
     },
     "app.bsky.feed.postgate": {
-      "count": 152964,
+      "count": 152965,
       "pct": 0.34,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "app.bsky.graph.listitem": {
       "count": 97053,
@@ -70,16 +70,16 @@
       "last_seen": "2026-08-15T23:19:29.975562+00:00"
     },
     "app.bsky.actor.status": {
-      "count": 41588,
+      "count": 41589,
       "pct": 0.09,
       "first_seen": "2025-12-02T22:20:22.405696+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "site.standard.document": {
-      "count": 35637,
+      "count": 35638,
       "pct": 0.08,
       "first_seen": "2026-01-23T18:41:05.797051+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "dev.sensorthings.observationBatch": {
       "count": 33644,
@@ -406,10 +406,10 @@
       "last_seen": "2026-06-29T14:50:15.940704+00:00"
     },
     "social.coves.community.post": {
-      "count": 1153,
+      "count": 1154,
       "pct": 0.0,
       "first_seen": "2026-02-17T07:05:16.217166+00:00",
-      "last_seen": "2026-08-16T16:22:42.300399+00:00"
+      "last_seen": "2026-08-16T17:18:48.649522+00:00"
     },
     "org.hypercerts.claim.activity": {
       "count": 1150,
@@ -190931,6 +190931,36 @@
         "app.bsky.graph.listblock": 0.08,
         "com.suibari.nowplayingat.history": 0.02,
         "app.rocksky.artist": 0.02
+      }
+    },
+    {
+      "ts": "2026-08-16T17:18:48.649522+00:00",
+      "duration_sec": 60,
+      "total": 397,
+      "eps": 6.6,
+      "counts": {
+        "app.bsky.feed.like": 240,
+        "app.bsky.feed.post": 77,
+        "app.bsky.feed.repost": 36,
+        "app.bsky.graph.follow": 21,
+        "app.bsky.actor.status": 1,
+        "app.bsky.graph.block": 18,
+        "app.bsky.feed.postgate": 1,
+        "app.bsky.feed.threadgate": 1,
+        "site.standard.document": 1,
+        "social.coves.community.post": 1
+      },
+      "counts_per_sec": {
+        "app.bsky.feed.like": 4.0,
+        "app.bsky.feed.post": 1.28,
+        "app.bsky.feed.repost": 0.6,
+        "app.bsky.graph.follow": 0.35,
+        "app.bsky.actor.status": 0.02,
+        "app.bsky.graph.block": 0.3,
+        "app.bsky.feed.postgate": 0.02,
+        "app.bsky.feed.threadgate": 0.02,
+        "site.standard.document": 0.02,
+        "social.coves.community.post": 0.02
       }
     }
   ]
